@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pouriya Lakaie Andi · Portfolio</title>
+<meta name="description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, and a multiplayer shooter on custom netcode.">
+<meta property="og:title" content="Pouriya Lakaie Andi · Game Programmer">
+<meta property="og:description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, and a multiplayer shooter on custom netcode.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eqido.github.io/">
+<meta property="og:image" content="https://eqido.github.io/assets/netcode-clip-poster.jpg">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232F55D4'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='white' text-anchor='middle'%3EPL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column; each project has a one-line summary, a role box and a decision note. */
+:root {
+  --bg: #F2F4F8;
+  --surface: #FFFFFF;
+  --fg: #141A24;
+  --muted: #5A6577;
+  --line: #D7DDE7;
+  --accent: #2F55D4;
+  --accent-soft: #E3E9FB;
+  --f-display: "Unbounded", "Avenir Next", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D121A; --surface: #151C27; --fg: #E5EAF2; --muted: #8E99AB; --line: #263042;
+    --accent: #86A2FF; --accent-soft: #1C2742; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D121A; --surface: #151C27; --fg: #E5EAF2; --muted: #8E99AB; --line: #263042;
+  --accent: #86A2FF; --accent-soft: #1C2742; color-scheme: dark;
+}
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 48px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 56px; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; max-width: 68ch; }
+.mono { font-family: var(--f-mono); }
+
+header { display: grid; gap: 14px; }
+.kicker { font-family: var(--f-mono); font-size: 13px; color: var(--muted); letter-spacing: .04em; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 6vw, 46px); line-height: 1.08; letter-spacing: -.01em; }
+.sub { font-size: 18px; color: var(--muted); max-width: 60ch; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; }
+.contact { font-family: var(--f-mono); font-size: 14px; color: var(--muted); user-select: all; }
+
+.section-label { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 14px; }
+
+/* Start-here table */
+.guide { border: 1px solid var(--line); border-radius: 6px; background: var(--surface); overflow-x: auto; }
+.guide table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+.guide th, .guide td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.guide tr:last-child td { border-bottom: 0; }
+.guide th { font-family: var(--f-mono); font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.guide td:first-child { font-family: var(--f-mono); color: var(--muted); width: 2.5em; font-variant-numeric: tabular-nums; }
+.guide td:last-child { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Case files */
+.cases { display: grid; gap: 40px; }
+.case { display: grid; gap: 14px; padding-top: 28px; border-top: 1px solid var(--line); }
+.case-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; align-items: baseline; }
+.case h3 { font-family: var(--f-display); font-weight: 500; font-size: 24px; letter-spacing: -.005em; }
+.meta { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.facts { font-size: 15px; color: var(--muted); }
+.case-links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
+.role { background: var(--accent-soft); border-radius: 6px; padding: 14px 16px; display: grid; gap: 6px; }
+.role b { font-family: var(--f-mono); font-weight: 500; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.role ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.decision { border-left: 2px solid var(--fg); padding: 2px 0 2px 16px; display: grid; gap: 4px; }
+.decision b { font-family: var(--f-mono); font-weight: 500; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-family: var(--f-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 3px; padding: 1px 7px; color: var(--muted); }
+
+/* The side-by-side clip: two 16:10 game windows stitched into one 3.2:1 frame. */
+.clip { display: grid; gap: 6px; margin: 0; }
+.clip video { width: 100%; max-width: 100%; aspect-ratio: 1920 / 600; display: block; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.clip figcaption { font-family: var(--f-mono); font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; }
+
+.small-list { display: grid; gap: 10px; }
+.small-list div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
+.small-list .meta { white-space: nowrap; }
+
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 32px; }
+.principles h4 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.principles p { color: var(--muted); font-size: 15px; }
+@media (max-width: 640px) { .principles { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; gap: 6px; color: var(--muted); font-size: 15px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">PORTFOLIO · GAME PROGRAMMER · UNITY / C#</div>
+  <h1>Pouriya Lakaie Andi</h1>
+  <p class="sub">Unity and C# programmer, looking for my next team. I like game rules that live in plain, tested code, building tools the rest of the team works with, and learning whatever the next project needs.</p>
+  <div class="links">
+    <a href="https://github.com/EQiDO">GitHub</a>
+    <a href="https://eqido.itch.io">itch.io</a>
+    <a href="https://www.youtube.com/@eqidogames">YouTube</a>
+    <a href="https://www.linkedin.com/in/pouriya-lakaie-andi-11b486204">LinkedIn</a>
+  </div>
+  <div class="contact"><a href="mailto:poriyalakaie01@gmail.com">poriyalakaie01@gmail.com</a></div>
+</header>
+
+<section>
+  <div class="section-label">Start here</div>
+  <div class="guide">
+    <table>
+      <thead><tr><th>#</th><th>Look at</th><th>Why</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#new-game-1">New mobile game</a></td><td>Game rules in plain C#, 271 tests, a level editor</td><td>3 min</td></tr>
+        <tr><td>2</td><td><a href="#netcode">Top-down shooter on custom netcode</a></td><td>Server-side hits, prediction, lag compensation, an A* enemy</td><td>3 min</td></tr>
+        <tr><td>3</td><td><a href="#pipeline">Production pipeline</a></td><td>How I work with AI agents and still own the code</td><td>3 min</td></tr>
+        <tr><td>4</td><td><a href="#new-game-2">Prototype to production</a></td><td>Physics port that matches the prototype exactly, plus a solver</td><td>2 min</td></tr>
+        <tr><td>5</td><td><a href="#the-whispers">The Whispers</a></td><td>Playable on itch.io now, made solo</td><td>15 min to play</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Fundora Games · Feb 2026 – Oct 2026</div>
+  <div class="cases">
+
+    <article class="case" id="new-game-1">
+      <div class="case-head">
+        <h3>New mobile game (in development)</h3>
+        <span class="meta">Fundora · Unity 6, URP · lead programmer</span>
+      </div>
+      <p class="facts">240 EditMode and 31 PlayMode tests. I wrote about 900 of its 1,230 commits.</p>
+      <p>The game hasn't been announced, so I'm leaving out its name and how it plays. This is about how it's built.</p>
+      <div class="role">
+        <b>My part</b>
+        <ul>
+          <li>I wrote all the game rules as plain C#: no MonoBehaviours and no Unity types. The board is a graph, pieces can take up more than one cell, and every move is resolved and checked before anything on screen changes.</li>
+          <li>The visual side only reads the rules and never writes back to them.</li>
+          <li>I built the level editor (a tile palette inside Unity), tools that generate the game's art from source files, and a level validator.</li>
+          <li>I set up PlayMode tests that drive the real scene. Checks we used to do by hand after every change now run automatically.</li>
+        </ul>
+      </div>
+      <div class="decision">
+        <b>Why the switch to 3D took a day</b>
+        <p>From day one the board used <span class="mono">Vector2Int</span>, and only four small functions converted to world space. Weeks later we decided the game had to be 3D. Because the rules didn't know anything about rendering, the switch took a day. I also wrote a test that runs through all 3,264 combinations of piece shape, direction, move and position. Most of the failures it reported were bugs in the test itself, but one was a real edge case, and it's a permanent test now.</p>
+      </div>
+      <div class="tags"><span>plain C# rules</span><span>Unity Test Framework</span><span>editor tools</span></div>
+    </article>
+
+    <article class="case" id="pipeline">
+      <div class="case-head">
+        <h3>Production pipeline</h3>
+        <span class="meta">Studio process and tooling · my own project · 2026</span>
+      </div>
+      <p class="facts">The studio's newer games were started with it. I wrote all of it.</p>
+      <p>After my first game at the studio I wrote down what had worked and turned it into a process anyone at the studio can follow to build a mobile game with an AI coding agent. Designers who don't code use it to start new games. The main idea is that every step ends with something a person can check.</p>
+      <div class="role">
+        <b>What's in it</b>
+        <ul>
+          <li>A command-line wrapper for Unity that compiles, runs tests, and runs editor methods headlessly. It works on a copy of the project, so you can keep the Editor open. The agent and the person get the same pass or fail.</li>
+          <li>Phases from research to release, each with clear exit criteria. There's one hard stop: a person has to confirm the table of game rules before anything gets designed.</li>
+          <li>Setup scripts for new projects, a release script that strips the debug tools out of player builds, and a small Python tool that compares video frames to help read mechanics from gameplay footage.</li>
+          <li>Written conventions for code, Unity, git and art, and setup guides for designers in English and Persian.</li>
+        </ul>
+      </div>
+      <div class="decision">
+        <b>Why the rules get signed off first</b>
+        <p>Early on I misread a game's core rule, and the mistake made it into four documents before anyone caught it. Since then the rules table has to be signed off first. I also made one strict rule for the agent: it never reports a result it didn't actually run. Each session ends by updating a handoff doc, so when the context runs out the next session starts from the notes instead of repeating old mistakes.</p>
+      </div>
+      <div class="tags"><span>Claude Code</span><span>MCP</span><span>shell and Python tools</span><span>git</span></div>
+    </article>
+
+    <article class="case" id="new-game-2">
+      <div class="case-head">
+        <h3>Prototype to production (in development)</h3>
+        <span class="meta">Fundora · from an HTML prototype to Unity</span>
+      </div>
+      <p class="facts">143 EditMode and 3 PlayMode tests, and every level passes the built-in solver.</p>
+      <p>A designer built the first version of this game in HTML, and I turned it into a Unity game. It's unannounced, so no name or gameplay here.</p>
+      <div class="role">
+        <b>My part</b>
+        <ul>
+          <li>I ported the prototype's physics simulation to C#. On every level it reaches the same result as the prototype at every step, with final positions within 4e-12 units.</li>
+          <li>I built a Unity level editor that works like the designer's HTML editor, including a phone preview that runs the real game code. It reads and writes the prototype's level file without changing a byte.</li>
+          <li>I added a solver, a "check all levels" button, and a check that refuses a broken level when it loads. I also generated the art from the prototype's drawing code and made a Luna playable ad.</li>
+        </ul>
+      </div>
+      <div class="decision">
+        <b>Why I kept the prototype's file format</b>
+        <p>Because I kept the prototype's file format, the designer didn't have to change how they worked. On the first day they edited a level and added a new one in Unity, and nothing broke.</p>
+      </div>
+      <div class="tags"><span>physics port</span><span>solver</span><span>custom editor windows</span><span>Luna playable</span></div>
+    </article>
+
+    <article class="case" id="live-games">
+      <div class="case-head">
+        <h3>Flow Fill, Juice Merge, Cat Out</h3>
+        <span class="meta">Live games · team projects · 2026</span>
+      </div>
+      <div class="case-links">
+        <a href="https://apps.apple.com/us/app/flow-fill/id6755528359">Flow Fill on the App Store</a>
+        <a href="https://apps.apple.com/us/app/juices-merge/id6751772175">Juice Merge on the App Store</a>
+        <a href="https://apps.apple.com/us/app/cat-out/id6764886880">Cat Out on the App Store</a>
+      </div>
+      <div class="role">
+        <b>My part in each</b>
+        <ul>
+          <li><b style="all:unset;font-weight:600">Flow Fill (live):</b> I moved the liquid logic into a graph where sources form a DAG. On top of it I built undo that cascades per zone, picking up and placing tanks during play, the heart system and levels with several valves. I also wrote a Python script that re-rates level difficulty.</li>
+          <li><b style="all:unset;font-weight:600">Juice Merge (live):</b> In-app purchases, including handling pending orders, banner ads, the no-ads offer, a take-a-break popup, the theme system and a Luna playable ad.</li>
+          <li><b style="all:unset;font-weight:600">Cat Out (live):</b> The cage and bracket mechanics, level generation, the camera intro, and moving the game's lifecycle over to events.</li>
+        </ul>
+      </div>
+      <div class="tags"><span>graphs</span><span>undo systems</span><span>IAP and ads</span><span>in-game UI</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Personal projects</div>
+  <div class="cases">
+
+    <article class="case" id="netcode">
+      <div class="case-head">
+        <h3>Top-down shooter on custom netcode</h3>
+        <span class="meta">Prototype · Unity 6, Unity Transport · 2026</span>
+      </div>
+      <p class="facts">150 automated tests. At 150 ms ping your own player responds instantly and never needs correcting.</p>
+      <figure class="clip">
+        <video id="netcode-clip" src="assets/netcode-clip.mp4" poster="assets/netcode-clip-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="Two game clients side by side at 150 ms round-trip time: server authority only on the left, prediction, interpolation and lag compensation on the right"></video>
+        <figcaption><span>left: 150 ms, server authority only</span><span>right: 150 ms, prediction + interpolation + lag compensation</span></figcaption>
+      </figure>
+      <p>Photon handled the transport and most of the syncing in my FPS project, so I wanted to build those parts myself. This is a small top-down shooter for 2 to 4 players and one enemy, running on plain UDP through Unity Transport, without Netcode for GameObjects, Mirror or Photon.</p>
+      <div class="role">
+        <b>What I built</b>
+        <ul>
+          <li>A server that runs the game at 30 ticks a second and decides everything. Clients only send their inputs, and keep resending them until the server confirms, so a short burst of packet loss doesn't drop any.</li>
+          <li>Prediction for your own player, so it moves the moment you press a key. When the server's update arrives, the client replays the inputs the server hasn't seen yet.</li>
+          <li>Interpolation for everyone else: other players are drawn 100 ms in the past, which keeps them smooth even when packets arrive unevenly.</li>
+          <li>Shots are checked on the server, which rewinds the other players to where the shooter saw them. An enemy run by the server chases the nearest player using A*.</li>
+        </ul>
+      </div>
+      <div class="decision">
+        <b>Hardest bug</b>
+        <p>Other players were drawn a frame later than they should have been. The timing code compared this frame's target with last frame's position, so it lost 8 to 16 ms of the buffer meant to cover a lost packet. My tests all passed, because they checked the code's own steps. I found it once I wrote a test for the actual goal: on average, draw exactly 100 ms behind the server.</p>
+      </div>
+      <div class="tags"><span>Unity Transport</span><span>server authority</span><span>prediction</span><span>interpolation</span><span>lag compensation</span><span>A*</span></div>
+    </article>
+
+    <article class="case" id="multiplayer">
+      <div class="case-head">
+        <h3>Multiplayer FPS simulation</h3>
+        <span class="meta">Prototype · Unity, Photon</span>
+      </div>
+      <p>A first-person simulation game where several players share one world. I made it to learn networking properly, outside my mobile work.</p>
+      <div class="role">
+        <b>What I built</b>
+        <ul>
+          <li>Player movement and animation synced across clients with Photon.</li>
+          <li>The host decides interactions. Clients send requests over RPCs and the host's answer is what everyone sees.</li>
+          <li>Client-side prediction for the local player so input feels instant, and interpolation for remote players so they move smoothly between updates.</li>
+        </ul>
+      </div>
+      <div class="decision">
+        <b>What came next</b>
+        <p>Photon took care of the transport and much of the syncing for me. To understand the parts it hid, I rebuilt the core of a top-down shooter on my own netcode: <a href="#netcode">see above</a>.</p>
+      </div>
+      <div class="tags"><span>Photon</span><span>RPCs</span><span>host authority</span><span>prediction</span><span>interpolation</span></div>
+    </article>
+
+    <article class="case" id="the-whispers">
+      <div class="case-head">
+        <h3>The Whispers</h3>
+        <span class="meta">First-person horror · solo · 2025</span>
+      </div>
+      <p class="facts">It reached the top 5 on itch.io and has over 10,000 downloads.</p>
+      <div class="case-links"><a href="https://eqido.itch.io/the-whispers">Play on itch.io</a></div>
+      <p>A short horror game, about 15 minutes from start to end. I made it alone: the code, the story, the sound and the marketing. It reached the itch.io front page and picked up a small community. I'm now working on the full five-chapter version, and the design is finished.</p>
+      <div class="tags"><span>solo release</span><span>FMOD</span><span>community</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Earlier work</div>
+  <div class="small-list">
+    <div><a href="https://fitfatfish.itch.io/voidalone">Void Alone, a first- and third-person puzzle game. Game director and programmer.</a><span class="meta">FFF Team · 2024–25</span></div>
+    <div><a href="https://eqido.itch.io/beat-street">Beat Street, a rhythm action game made in under 24 hours for a jam</a><span class="meta">Jam · 2025</span></div>
+    <div><span><a href="https://github.com/EQiDO/Sudoku-Solver-CSP">Sudoku CSP solver</a> · <a href="https://github.com/EQiDO/MDP">MDP</a> · <a href="https://github.com/EQiDO/TuringMachine">Turing machine</a></span><span class="meta">University</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">How I work</div>
+  <div class="principles">
+    <div><h4>Rules first, visuals second</h4><p>Game logic is plain C#. If I deleted every model and sprite, it would still compile and the tests would still pass.</p></div>
+    <div><h4>A rule is done when a test says so</h4><p>For tricky geometry I check the maths in a quick Python script before writing any C#.</p></div>
+    <div><h4>No field without a reason</h4><p>If no rule reads a value, I take it out before other code starts depending on it.</p></div>
+    <div><h4>AI helps, I own it</h4><p>Agents work inside rules and checks I set up. I review everything that ships and can walk you through any of it.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div>Pouriya Lakaie Andi · Babol, Iran · open to remote work, available now</div>
+  <div class="mono"><a href="mailto:poriyalakaie01@gmail.com">poriyalakaie01@gmail.com</a></div>
+</footer>
+
+</div>
+</body>
+</html>
