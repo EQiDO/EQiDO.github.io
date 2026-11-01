@@ -81,6 +81,15 @@ h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 6vw
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { font-family: var(--f-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 3px; padding: 1px 7px; color: var(--muted); }
 
+/* Live games: one card per App Store title */
+.games { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+.game { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: grid; gap: 10px; align-content: start; }
+.game-head { display: flex; gap: 12px; align-items: center; }
+.game-head img { width: 56px; height: 56px; border-radius: 13px; flex: none; }
+.game-head h3 { font-family: var(--f-display); font-weight: 500; font-size: 19px; }
+.game p { font-size: 15px; color: var(--muted); }
+.game .store { font-size: 15px; font-weight: 500; }
+
 .small-list { display: grid; gap: 10px; }
 .small-list div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
 .small-list .meta { white-space: nowrap; }
@@ -110,16 +119,38 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
   <div class="contact"><a href="mailto:poriyalakaie01@gmail.com">poriyalakaie01@gmail.com</a></div>
 </header>
 
+<section id="mobile-games">
+  <div class="section-label">Live mobile games · Fundora · 2026</div>
+  <div class="games">
+    <article class="game">
+      <div class="game-head"><img src="assets/flow-fill.jpg" alt="Flow Fill app icon" width="56" height="56"><h3>Flow Fill</h3></div>
+      <p>The liquid flow system as a graph where sources form a DAG, undo that cascades per zone, the heart system, levels with several valves, a Python script that re-rates level difficulty, and the playable ad.</p>
+      <a class="store" href="https://apps.apple.com/us/app/flow-fill/id6755528359">View on the App Store →</a>
+    </article>
+    <article class="game">
+      <div class="game-head"><img src="assets/juice-merge.jpg" alt="Juice Merge app icon" width="56" height="56"><h3>Juice Merge</h3></div>
+      <p>In-app purchases including pending orders, banner ads, the no-ads offer, a take-a-break popup, the theme system and the Luna playable ad.</p>
+      <a class="store" href="https://apps.apple.com/us/app/juices-merge/id6751772175">View on the App Store →</a>
+    </article>
+    <article class="game">
+      <div class="game-head"><img src="assets/cat-out.jpg" alt="Cat Out app icon" width="56" height="56"><h3>Cat Out</h3></div>
+      <p>The cage and bracket mechanics, level generation, the camera intro, and moving the game's lifecycle over to events.</p>
+      <a class="store" href="https://apps.apple.com/us/app/cat-out/id6764886880">View on the App Store →</a>
+    </article>
+  </div>
+</section>
+
 <section>
   <div class="section-label">Start here</div>
   <div class="guide">
     <table>
       <thead><tr><th>#</th><th>Look at</th><th>Why</th><th>Time</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><a href="#new-game-1">New mobile game</a></td><td>Game rules in plain C#, 271 tests, a level editor</td><td>3 min</td></tr>
-        <tr><td>2</td><td><a href="#pipeline">Production pipeline</a></td><td>How I work with AI agents and still own the code</td><td>3 min</td></tr>
-        <tr><td>3</td><td><a href="#new-game-2">Prototype to production</a></td><td>Physics port that matches the prototype exactly, plus a solver</td><td>2 min</td></tr>
-        <tr><td>4</td><td><a href="#the-whispers">The Whispers</a></td><td>Playable on itch.io now, made solo</td><td>15 min to play</td></tr>
+        <tr><td>1</td><td><a href="#mobile-games">Live mobile games</a></td><td>Flow Fill, Juice Merge and Cat Out, all on the App Store</td><td>1 min</td></tr>
+        <tr><td>2</td><td><a href="#new-game-1">New mobile game</a></td><td>Game rules in plain C#, automated tests, a level editor</td><td>3 min</td></tr>
+        <tr><td>3</td><td><a href="#pipeline">Production pipeline</a></td><td>How I work with AI agents and still own the code</td><td>3 min</td></tr>
+        <tr><td>4</td><td><a href="#new-game-2">Prototype to production</a></td><td>Physics port that matches the prototype exactly, plus a solver</td><td>2 min</td></tr>
+        <tr><td>5</td><td><a href="#the-whispers">The Whispers</a></td><td>Playable on itch.io now, made solo</td><td>15 min to play</td></tr>
       </tbody>
     </table>
   </div>
@@ -134,7 +165,7 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
         <h3>New mobile game (in development)</h3>
         <span class="meta">Fundora · Unity 6, URP · lead programmer</span>
       </div>
-      <p class="facts">240 EditMode and 31 PlayMode tests. I wrote about 900 of its 1,230 commits.</p>
+      <p class="facts">I wrote about 900 of its 1,230 commits.</p>
       <p>The game hasn't been announced, so I'm leaving out its name and how it plays. This is about how it's built.</p>
       <div class="role">
         <b>My part</b>
@@ -180,7 +211,7 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
         <h3>Prototype to production (in development)</h3>
         <span class="meta">Fundora · from an HTML prototype to Unity</span>
       </div>
-      <p class="facts">143 EditMode and 3 PlayMode tests, and every level passes the built-in solver.</p>
+      <p class="facts">Every level passes the built-in solver.</p>
       <p>A designer built the first version of this game in HTML, and I turned it into a Unity game. It's unannounced, so no name or gameplay here.</p>
       <div class="role">
         <b>My part</b>
@@ -197,26 +228,6 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
       <div class="tags"><span>physics port</span><span>solver</span><span>custom editor windows</span><span>Luna playable</span></div>
     </article>
 
-    <article class="case" id="live-games">
-      <div class="case-head">
-        <h3>Flow Fill, Juice Merge, Cat Out</h3>
-        <span class="meta">Live games · team projects · 2026</span>
-      </div>
-      <div class="case-links">
-        <a href="https://apps.apple.com/us/app/flow-fill/id6755528359">Flow Fill on the App Store</a>
-        <a href="https://apps.apple.com/us/app/juices-merge/id6751772175">Juice Merge on the App Store</a>
-        <a href="https://apps.apple.com/us/app/cat-out/id6764886880">Cat Out on the App Store</a>
-      </div>
-      <div class="role">
-        <b>My part in each</b>
-        <ul>
-          <li><b style="all:unset;font-weight:600">Flow Fill (live):</b> I moved the liquid logic into a graph where sources form a DAG. On top of it I built undo that cascades per zone, picking up and placing tanks during play, the heart system and levels with several valves. I also wrote a Python script that re-rates level difficulty.</li>
-          <li><b style="all:unset;font-weight:600">Juice Merge (live):</b> In-app purchases, including handling pending orders, banner ads, the no-ads offer, a take-a-break popup, the theme system and a Luna playable ad.</li>
-          <li><b style="all:unset;font-weight:600">Cat Out (live):</b> The cage and bracket mechanics, level generation, the camera intro, and moving the game's lifecycle over to events.</li>
-        </ul>
-      </div>
-      <div class="tags"><span>graphs</span><span>undo systems</span><span>IAP and ads</span><span>in-game UI</span></div>
-    </article>
 
   </div>
 </section>
