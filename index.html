@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pouriya Lakaie Andi · Portfolio</title>
-<meta name="description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, and a multiplayer shooter on custom netcode.">
+<meta name="description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, level editors and playable ads.">
 <meta property="og:title" content="Pouriya Lakaie Andi · Game Programmer">
-<meta property="og:description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, and a multiplayer shooter on custom netcode.">
+<meta property="og:description" content="Unity and C# game programmer. Shipped mobile games, a studio production pipeline, level editors and playable ads.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eqido.github.io/">
-<meta property="og:image" content="https://eqido.github.io/assets/netcode-clip-poster.jpg">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232F55D4'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='white' text-anchor='middle'%3EPL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,11 +81,6 @@ h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 6vw
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { font-family: var(--f-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 3px; padding: 1px 7px; color: var(--muted); }
 
-/* The side-by-side clip: two 16:10 game windows stitched into one 3.2:1 frame. */
-.clip { display: grid; gap: 6px; margin: 0; }
-.clip video { width: 100%; max-width: 100%; aspect-ratio: 1920 / 600; display: block; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
-.clip figcaption { font-family: var(--f-mono); font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; }
-
 .small-list { display: grid; gap: 10px; }
 .small-list div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
 .small-list .meta { white-space: nowrap; }
@@ -106,7 +100,7 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
 <header>
   <div class="kicker">PORTFOLIO · GAME PROGRAMMER · UNITY / C#</div>
   <h1>Pouriya Lakaie Andi</h1>
-  <p class="sub">Unity and C# programmer, looking for my next team. I like game rules that live in plain, tested code, building tools the rest of the team works with, and learning whatever the next project needs.</p>
+  <p class="sub">Unity and C# game programmer. I like game rules that live in plain, tested code, building tools the rest of the team works with, and learning whatever the next project needs.</p>
   <div class="links">
     <a href="https://github.com/EQiDO">GitHub</a>
     <a href="https://eqido.itch.io">itch.io</a>
@@ -123,10 +117,9 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
       <thead><tr><th>#</th><th>Look at</th><th>Why</th><th>Time</th></tr></thead>
       <tbody>
         <tr><td>1</td><td><a href="#new-game-1">New mobile game</a></td><td>Game rules in plain C#, 271 tests, a level editor</td><td>3 min</td></tr>
-        <tr><td>2</td><td><a href="#netcode">Top-down shooter on custom netcode</a></td><td>Server-side hits, prediction, lag compensation, an A* enemy</td><td>3 min</td></tr>
-        <tr><td>3</td><td><a href="#pipeline">Production pipeline</a></td><td>How I work with AI agents and still own the code</td><td>3 min</td></tr>
-        <tr><td>4</td><td><a href="#new-game-2">Prototype to production</a></td><td>Physics port that matches the prototype exactly, plus a solver</td><td>2 min</td></tr>
-        <tr><td>5</td><td><a href="#the-whispers">The Whispers</a></td><td>Playable on itch.io now, made solo</td><td>15 min to play</td></tr>
+        <tr><td>2</td><td><a href="#pipeline">Production pipeline</a></td><td>How I work with AI agents and still own the code</td><td>3 min</td></tr>
+        <tr><td>3</td><td><a href="#new-game-2">Prototype to production</a></td><td>Physics port that matches the prototype exactly, plus a solver</td><td>2 min</td></tr>
+        <tr><td>4</td><td><a href="#the-whispers">The Whispers</a></td><td>Playable on itch.io now, made solo</td><td>15 min to play</td></tr>
       </tbody>
     </table>
   </div>
@@ -232,54 +225,6 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
   <div class="section-label">Personal projects</div>
   <div class="cases">
 
-    <article class="case" id="netcode">
-      <div class="case-head">
-        <h3>Top-down shooter on custom netcode</h3>
-        <span class="meta">Prototype · Unity 6, Unity Transport · 2026</span>
-      </div>
-      <p class="facts">150 automated tests. At 150 ms ping your own player responds instantly and never needs correcting.</p>
-      <figure class="clip">
-        <video id="netcode-clip" src="assets/netcode-clip.mp4" poster="assets/netcode-clip-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="Two game clients side by side at 150 ms round-trip time: server authority only on the left, prediction, interpolation and lag compensation on the right"></video>
-        <figcaption><span>left: 150 ms, server authority only</span><span>right: 150 ms, prediction + interpolation + lag compensation</span></figcaption>
-      </figure>
-      <p>Photon handled the transport and most of the syncing in my FPS project, so I wanted to build those parts myself. This is a small top-down shooter for 2 to 4 players and one enemy, running on plain UDP through Unity Transport, without Netcode for GameObjects, Mirror or Photon.</p>
-      <div class="role">
-        <b>What I built</b>
-        <ul>
-          <li>A server that runs the game at 30 ticks a second and decides everything. Clients only send their inputs, and keep resending them until the server confirms, so a short burst of packet loss doesn't drop any.</li>
-          <li>Prediction for your own player, so it moves the moment you press a key. When the server's update arrives, the client replays the inputs the server hasn't seen yet.</li>
-          <li>Interpolation for everyone else: other players are drawn 100 ms in the past, which keeps them smooth even when packets arrive unevenly.</li>
-          <li>Shots are checked on the server, which rewinds the other players to where the shooter saw them. An enemy run by the server chases the nearest player using A*.</li>
-        </ul>
-      </div>
-      <div class="decision">
-        <b>Hardest bug</b>
-        <p>Other players were drawn a frame later than they should have been. The timing code compared this frame's target with last frame's position, so it lost 8 to 16 ms of the buffer meant to cover a lost packet. My tests all passed, because they checked the code's own steps. I found it once I wrote a test for the actual goal: on average, draw exactly 100 ms behind the server.</p>
-      </div>
-      <div class="tags"><span>Unity Transport</span><span>server authority</span><span>prediction</span><span>interpolation</span><span>lag compensation</span><span>A*</span></div>
-    </article>
-
-    <article class="case" id="multiplayer">
-      <div class="case-head">
-        <h3>Multiplayer FPS simulation</h3>
-        <span class="meta">Prototype · Unity, Photon</span>
-      </div>
-      <p>A first-person simulation game where several players share one world. I made it to learn networking properly, outside my mobile work.</p>
-      <div class="role">
-        <b>What I built</b>
-        <ul>
-          <li>Player movement and animation synced across clients with Photon.</li>
-          <li>The host decides interactions. Clients send requests over RPCs and the host's answer is what everyone sees.</li>
-          <li>Client-side prediction for the local player so input feels instant, and interpolation for remote players so they move smoothly between updates.</li>
-        </ul>
-      </div>
-      <div class="decision">
-        <b>What came next</b>
-        <p>Photon took care of the transport and much of the syncing for me. To understand the parts it hid, I rebuilt the core of a top-down shooter on my own netcode: <a href="#netcode">see above</a>.</p>
-      </div>
-      <div class="tags"><span>Photon</span><span>RPCs</span><span>host authority</span><span>prediction</span><span>interpolation</span></div>
-    </article>
-
     <article class="case" id="the-whispers">
       <div class="case-head">
         <h3>The Whispers</h3>
@@ -314,7 +259,7 @@ footer { border-top: 1px solid var(--line); padding-top: 22px; display: grid; ga
 </section>
 
 <footer>
-  <div>Pouriya Lakaie Andi · Babol, Iran · open to remote work, available now</div>
+  <div>Pouriya Lakaie Andi · Babol, Iran · Remote</div>
   <div class="mono"><a href="mailto:poriyalakaie01@gmail.com">poriyalakaie01@gmail.com</a></div>
 </footer>
 
